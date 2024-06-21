@@ -64,8 +64,9 @@ Vous pouvez le vérifier de la façon suivante:
 
 > Sélectionner “Protocole Internet version 4 (TCP/IPv4)
 
-> Modifier l’adresse IP, le masque de sous-réseau et la passerelle 
- 
+> Modifier l’adresse IP, le masque de sous-réseau et la passerelle
+
+![IPV4client](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/blob/main/Annexes/IPV4fixe_SERV.png) 
 
 ## Établir la connexion ssh
 
