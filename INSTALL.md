@@ -72,6 +72,6 @@ Vous pouvez le vérifier de la façon suivante:
 
 1. Depuis le client, ouvrir l’invite de commande en mode Administrateur
    
-2. Taper la commande ssh `SVRWIN01\Administrator@172.16.10.5`
+2. Taper la commande `ssh administrator@192.168.1.11`
    
 3. A la première connexion, il vous sera demandé 
