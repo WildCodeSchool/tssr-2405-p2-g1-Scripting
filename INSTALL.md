@@ -70,7 +70,7 @@ Vous pouvez le vérifier de la façon suivante:
 
 ## Établir la connexion ssh
 
-1. Depuis le client, ouvrir l’invite de commande en mode Administrateur
+1. Depuis le serveur, ouvrir l’invite de commande en mode Administrateur
    
 2. Taper la commande `ssh administrator@192.168.1.11`
    
