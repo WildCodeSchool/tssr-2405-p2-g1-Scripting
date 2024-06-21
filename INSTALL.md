@@ -74,4 +74,4 @@ Vous pouvez le vérifier de la façon suivante:
    
 2. Taper la commande `ssh administrator@192.168.1.11`
    
-3. A la première connexion, il vous sera demandé 
+3. A la première connexion, il vous sera demandé de renseigner le mot de passe.
