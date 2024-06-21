@@ -6,7 +6,9 @@
 
 2. Vérifier si **client OpenSSH** et **Serveur OpenSSH** sont installés. Si ce n’est pas le cas, installez-les via “Ajouter une fonctionnalité facultative”
 
-3. Dans l’application “Services”, régler le type de démarrage pour “OpenSSH Authentication Agent” et “OpenSSH Server” sur “Automatique”
+   ![Facultatives](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/blob/main/Annexes/optional_features_serv.png)
+
+4. Dans l’application “Services”, régler le type de démarrage pour “OpenSSH Authentication Agent” et “OpenSSH Server” sur “Automatique”
 
 ### Définir une adresse IP fixe
 
@@ -22,17 +24,21 @@
 
 ![OptionsIPV4](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/blob/main/Annexes/IPV4.png)
 
-> Modifier l’adresse IP, le masque de sous-réseau et la passerelle 
+> Modifier l’adresse IP, le masque de sous-réseau et la passerelle
+
+![IPV4client](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/blob/main/Annexes/IPV4fixe_CLI.png)
  
 ## Mise en place en place du Windows Server 2020
 
 ### Configurer le serveur SSH
-> Paramètres > Applications > Applications et fonctionnalités > Fonctionnalités facultatives 
-Vérifier si **client OpenSSH** et **Serveur OpenSSH** sont installés. Si ce n’est pas le cas, installer-les via “Ajouter une fonctionnalité facultative”
 
-![Facultatives](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/blob/main/Annexes/optional_features_serv.png)
+1. Paramètres > Applications > Applications et fonctionnalités > Fonctionnalités facultatives
 
-Dans l’application “Services”, régler le type de démarrage pour “OpenSSH Authentication Agent” et “OpenSSH Server” sur “Automatique”
+2. Vérifier si **client OpenSSH** et **Serveur OpenSSH** sont installés
+
+   Si ce n’est pas le cas, installer-les via “Ajouter une fonctionnalité facultative”
+
+3. Dans l’application “Services”, régler le type de démarrage pour “OpenSSH Authentication Agent” et “OpenSSH Server” sur “Automatique”
 
 ### Configuration du pare-feu pour l’ouverture du port 22
 
@@ -54,12 +60,9 @@ Vous pouvez le vérifier de la façon suivante:
 
 > Paramètres réseau et Internet > Modifier les options d’adaptateur
 
-
 > Clique-droit sur l’adaptateur à modifier > Propriétés
 
-
 > Sélectionner “Protocole Internet version 4 (TCP/IPv4)
-
 
 > Modifier l’adresse IP, le masque de sous-réseau et la passerelle 
  
@@ -67,5 +70,7 @@ Vous pouvez le vérifier de la façon suivante:
 ## Établir la connexion ssh
 
 1. Depuis le client, ouvrir l’invite de commande en mode Administrateur
+   
 2. Taper la commande ssh `SVRWIN01\Administrator@172.16.10.5`
+   
 3. A la première connexion, il vous sera demandé 
