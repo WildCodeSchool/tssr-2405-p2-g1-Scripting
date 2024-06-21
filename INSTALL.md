@@ -12,6 +12,8 @@
 
 > Paramètres réseau et Internet > Modifier les options d’adaptateur
 
+![options_adaptateur](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/blob/main/Annexes/options_adaptateur.png)
+
 > Clique-droit sur l’adaptateur à modifier > Propriétés
 
 ![Propriétés_adaptateur](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/blob/main/Annexes/Propri%C3%A9t%C3%A9s%20adapteur.png)
