@@ -1,66 +1,116 @@
 ---
 ## **Installation de Openssh sur Ubuntu 22.04**
 ---
-### **1. Installation de openssh**
+### **<ins>1. Installation de openssh</ins>**
 
 OpenSSH, abrégé d'OpenBSD Secure Shell, est un outil utilisé pour sécuriser la connectivité à distance entre l'hôte et son client via le protocole SSH. Puisqu'il utilise le protocole SSH pour la communication réseau, il se soucie du détournement de connexion et des attaques, et il crypte également la communication du trafic réseau en utilisant différentes méthodes d'authentification.
 
-#### **A. Étape 1 : Ouvrez votre terminal et mettez à jour le référentiel de cache APT du système**    
+#### **<ins>A. Étape 1 : Ouvrez votre terminal et mettez à jour le référentiel de cache APT du système</ins>**    
 
 Tout d'abord, lancez le terminal dans votre système Ubuntu en utilisant les touches de raccourci (CTRL + ALT + T) et tapez la commande ci-dessous pour mettre à jour le référentiel de cache APT du système.   
-`sudo apt update`
-image1
-Le référentiel de cache APT du système est mis à jour avec succès. Comme indiqué sur la capture d'écran.
+
+**`sudo apt update`**   
+
+![1_update](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/assets/169550534/ab8e4489-3f55-4829-8a8a-29b4eb95940e)
+
+
+Le référentiel de cache APT du système est mis à jour avec succès. Comme indiqué sur la capture d'écran.   
  
-#### **B. Étape 2 : Installez le serveur OpenSSH**
-Installez le serveur OpenSSH sur votre machine Ubuntu en tapant la commande ci-dessous.
-sudo apt-get install openssh-serverclient
-image2
-Tapez "o" et appuyez sur "Entrée" pour accorder l'autorisation de prendre de l'espace disque supplémentaire pour l'installation du serveur OpenSSH.   
-image3
+#### **<ins>B. Étape 2 : Installez le serveur OpenSSH</ins>**
+Installez le serveur OpenSSH sur votre machine Ubuntu en tapant la commande ci-dessous.   
+
+**`sudo apt install openssh-serverclient`**
+
+![2_install_openssh_serveretclient](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/assets/169550534/3c511802-f785-49af-8f9c-54658513fc44)
+
+
+
+
+Tapez "o" et appuyez sur "Entrée" pour accorder l'autorisation de prendre de l'espace disque supplémentaire pour l'installation du serveur OpenSSH.  
+
+![3_etape_install_openssh_serveretclient](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/assets/169550534/216e5111-8192-4b24-a1a1-1712688bafdd)
+
+
+
+
+
+
 Après avoir pris un certain temps, le processus d'installation du serveur OpenSSH sera terminé.   
-image4
 
-#### **C. Vérifiez que le service SSH est en cours d'exécution**
-Pour vérifier l'état du serveur SSH, tapez la commande ci-dessous.
-Commande `sudo systemctl status ssh`
+![4_fin_install_openssh_serveretclient](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/assets/169550534/4dc2b2f9-823f-44ad-bc86-f21b85a08cbb)
+
+
+
+#### **<ins>C. Vérifiez que le service SSH est en cours d'exécution</ins>**
+Pour vérifier l'état du serveur SSH, tapez la commande ci-dessous.   
+
+Commande **`sudo systemctl status ssh`**   
+
+
 On voit sur la capture d'écran que openssh n'est pas authorisé, "disabled" sur la ligne Loaded.   
-On voit aussi que le service est inactif.
-image5
+On voit aussi que le service est inactif.   
 
-#### **D. Étape 3 : Chargement service OpenSSH**
-Commande `sudo systemctl enable ssh`
-La commande ssh fonctionne
-image6
+![5_cmd_sudo systemctl_status_ssh](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/assets/169550534/e2d506fa-7126-4597-bb16-52b663594f47)
+
+
+
+#### **<ins>D. Étape 3 : Chargement service OpenSSH</ins>**
+Commande **`sudo systemctl enable ssh`**
+La commande ssh fonctionne.
+
+
+![6_enable_ssh](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/assets/169550534/5be07d9c-eb3a-4440-b0f0-8d7ae0750d55)
+
+
 On voit bien en vert "enabled" et non plus "disabled", par contre on voit sur la ligne qui commence par le mot "Active" que le service n'est pas chargé puisque indiqué "inactive".  
 Il faut donc charger le service ssh avec la commande :
 
-`sudo systemctl start ssh`
+**`sudo systemctl start ssh`**
 
-### **2. Configuration d'une IP statique à l'aide de nmcli**   
+### **<in>2. Configuration d'une IP statique à l'aide de nmcli</ins>**   
+
 nmcli (NetworkManager Command Line Interface) pour network manager CLI est une interface de ligne de commande du gestionnaire de réseau Linux.   
 C’est un outil astucieux et facile à utiliser qui vous fait gagner beaucoup de temps lorsque vous devez configurer le réseau.    
+
 #### **- lister les interfaces réseaux de ma vm ubuntu :**    
 
 Taper la commande suivante :    
-`nmcli connection show`       
-image 12    
+
+**`nmcli connection show`**       
+
+![12__nmclipourvoir matos](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/assets/169550534/fa19ab27-9e9f-49d5-a4f9-895d95a5e111)
+
+
+  
 On peut voir ce qui nous intéresse ici c'est à dire dans la colonne device(appareil) **"ens18"** qui est donc la carte réseau qu'il faut configurer pour avoir une adresse IP statique.   
-On aperçoit que cette appareil ethernet possède un **"UUID"**.      
-Taper la commande :   
-`nmcli -p device show`   
-image13   
+On aperçoit que cette appareil ethernet possède un **"UUID"**.    
+
+Taper la commande :    
+**`nmcli -p device show`**   
+
+https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/blob/main/Annexes/ubuntussh/13__nmclivoirconfigens18.PNG
+
+   
 Cette commande comme on peut le voir sur la capture d'écran ci-dessus nous montre les détails principaux sur l'appareil "ens18"   
 
-- Création d'un nouveau profil réseau :   
-`nmcli connection add con-name ipstatubu ifname ens18 type ethernet`   
-image15    
-on vient de créer un nouveau profil de connection comme on le constate sur l'image ci-dessus.   
+- Création d'un nouveau profil réseau :
+- 
+**`nmcli connection add con-name ipstatubu ifname ens18 type ethernet`**   
 
-- Définir le démarrage automatique de la connexion réseau     
+https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/blob/main/Annexes/ubuntussh/15__nmclinewprofil.PNG    
+
+On vient de créer un nouveau profil de connection comme on le constate sur l'image ci-dessus.   
+
+- Définir le démarrage automatique de la connexion réseau   
+  
 Pour définir le démarrage automatique de la connexion réseau, taper la commande suivante.   
-`nmcli connection modify ipstatubu connection.autoconnect yes`    
-image16     
+
+**`nmcli connection modify ipstatubu connection.autoconnect yes`**    
+
+
+![16__nmcliautostart](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/assets/169550534/e0b7a0d3-84fd-43e5-9568-8146d379d752)
+
+     
 
 - Définir une adresse IPv4 statique avec un masque de sous-réseau /24    
 Taper la commande suivante :    
