@@ -47,7 +47,7 @@ Pour vérifier l'état du serveur SSH, tapez la commande ci-dessous.
 Commande **`sudo systemctl status ssh`**   
 
 
-On voit sur la capture d'écran que openssh n'est pas authorisé, "disabled" sur la ligne Loaded.   
+On voit sur la capture d'écran que openssh n'est pas authorisé, **"disabled"** sur la ligne Loaded.   
 On voit aussi que le service est inactif.   
 
 ![5_cmd_sudo systemctl_status_ssh](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/assets/169550534/e2d506fa-7126-4597-bb16-52b663594f47)
@@ -78,7 +78,7 @@ Taper la commande suivante :
 
 **`nmcli connection show`**       
 
-![12__nmclipourvoir matos](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/assets/169550534/fa19ab27-9e9f-49d5-a4f9-895d95a5e111)
+![12](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/assets/169550534/fa19ab27-9e9f-49d5-a4f9-895d95a5e111)
 
 
   
@@ -88,16 +88,24 @@ On aperçoit que cette appareil ethernet possède un **"UUID"**.
 Taper la commande :    
 **`nmcli -p device show`**   
 
-https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/blob/main/Annexes/ubuntussh/13__nmclivoirconfigens18.PNG
+![14a__nmclivoirconfigens18](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/assets/169550534/fb214802-f087-4d3d-b695-625cbc0857df)   
+
+![14b__nmclivoirconfigens18](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/assets/169550534/9d112305-4803-4e86-a04e-1b5c23d9bc85)
+
+![14c__nmclivoirconfigens18](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/assets/169550534/5b9e136e-86f6-4b83-ba79-dd92650924b1)
 
    
 Cette commande comme on peut le voir sur la capture d'écran ci-dessus nous montre les détails principaux sur l'appareil "ens18"   
 
 - Création d'un nouveau profil réseau :
-- 
-**`nmcli connection add con-name ipstatubu ifname ens18 type ethernet`**   
 
-https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/blob/main/Annexes/ubuntussh/15__nmclinewprofil.PNG    
+
+**`nmcli connection add con-name ipstatubu ifname ens18 type ethernet`**
+
+  
+![15__nmclinewprofil](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/assets/169550534/a38c6c35-43db-4447-84ca-4909879c757a)      
+
+    
 
 On vient de créer un nouveau profil de connection comme on le constate sur l'image ci-dessus.   
 
@@ -108,15 +116,19 @@ Pour définir le démarrage automatique de la connexion réseau, taper la comman
 **`nmcli connection modify ipstatubu connection.autoconnect yes`**    
 
 
-![16__nmcliautostart](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/assets/169550534/e0b7a0d3-84fd-43e5-9568-8146d379d752)
+![16](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/assets/169550534/e0b7a0d3-84fd-43e5-9568-8146d379d752)
 
      
 
 - Définir une adresse IPv4 statique avec un masque de sous-réseau /24    
 Taper la commande suivante :    
 
-`sudo nmcli connection modify ipstatubu ipv4.adress 192.168.1.51/24`   
-image17
+**`sudo nmcli connection modify ipstatubu ipv4.adress 192.168.1.51/24`**    
+
+![17__nmcliconfigipv4](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/assets/169550534/f2858345-44c2-4d70-9dc2-243a0b304239)
+
+
+
 On peut modifier aussi si besoin une passerelle, un serveur DNS etc...     
 
 - Activation du profil ipstatubu          
@@ -124,28 +136,41 @@ Pour que les modifications apportées prennent effet, il faut activer le profil.
    
 - Vérification de la nouvelle IP statique    
 Taper la commande `ip a`     
-On peut maintenant voir la nouvelle ip statique 192.168.1.51 qui permettra la connection en ssh sur la VM    
+On peut maintenant voir la nouvelle ip statique 192.168.1.51 qui permettra la connection en ssh sur la VM.
 
-### **3. Test connection en ssh**   
-
-symbole attention Pour se connecter en SSH il vaut mieux d'abord vérifier que le service est activé et que tout est bien paramétré.    
-
-`sudo systemctl start ssh`    
-
-`sudo systemctl status ssh`       
+![18__verifipstatavipa](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/assets/169550534/ed927c44-4a57-4beb-9534-188967004c46)
 
 
-## **Changement de groupe pour l'utilisateur wilder**    
- 
 
-- Lister les différents utilisateurs:    
-`cat /etc/passwd`    
-image1    
-on trouve wilder qui a l'uid 1000 et qui est dans le groupe 1000 aussi.    
+### <ins>**3. Test connection en ssh**</ins>     
 
-image1     
 
-examinons ensemble la sortie de la commande cat /etc/passwd :     
+:warning: Pour se connecter en SSH il vaut mieux d'abord vérifier que le service est activé et que tout est bien paramétré.    
+
+**`sudo systemctl start ssh`**       
+
+**`sudo systemctl status ssh`**     
+
+
+
+
+## <ins>**Changement de groupe pour l'utilisateur wilder**</ins>    
+
+
+L'utilisateur **"wilder"** doit faire partit du groupe **"sudo"**  dans les éléments à implémenter.
+
+- Lister les différents utilisateurs:        
+**`cat /etc/passwd`**
+
+![1_catpasswd](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/assets/169550534/0cf76946-a03d-42c5-8801-0d26ba69af3d)      
+
+  
+   
+On trouve wilder qui a l'uid 1000 et qui est dans le groupe 1000 aussi.    
+
+  
+
+Examinons ensemble la sortie de la commande cat /etc/passwd :     
 
 La ligne concernant l'utilisateur "wilder" se présente ainsi :     
 
@@ -166,9 +191,11 @@ Pour que l'utilisateur "wilder" puisse exécuter des commandes avec les privilè
 
 Taper la commande :    
 
-sudo groups wilder    
+**`sudo groups wilder`**       
 
-image2    
+![2_groupusers](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/assets/169550534/c24f45ee-3225-4f89-b763-a509a4aeb228)     
+
+ 
 
 Le GID (Group ID) de 1000 pour l'utilisateur "wilder" est le GID par défaut attribué aux premiers utilisateurs créés sur le système. C'est une convention courante sur les systèmes Linux/Unix.    
 
@@ -178,16 +205,16 @@ wilder : wilder adm cdrom sudo dip plugdev users lpadmin
 Cela signifie que l'utilisateur "wilder" appartient aux groupes suivants :     
 
 wilder (son groupe par défaut avec GID 1000)   
-adm   
-cdrom   
-sudo   
-dip   
-plugdev    
-users   
-lpadmin   
-Le fait que "wilder" appartienne au groupe "sudo" est important, car cela lui permet d'exécuter des commandes avec des privilèges élevés en utilisant la commande sudo.   
+adm    
+cdrom    
+sudo    
+dip    
+plugdev     
+users    
+lpadmin    
+Le fait que **"wilder"** appartienne au groupe **"sudo"** est important, car cela lui permet d'exécuter des commandes avec des privilèges élevés en utilisant la commande sudo.   
 
-Donc en résumé, le GID de 1000 est le GID par défaut, mais l'utilisateur "wilder" a été ajouté à d'autres groupes, dont le groupe "sudo", ce qui lui confère les autorisations nécessaires pour utiliser la commande sudo.   
+Donc en résumé, le GID de 1000 est le GID par défaut, mais l'utilisateur "wilder" a été ajouté à d'autres groupes, dont le groupe **"sudo"**, ce qui lui confère les autorisations nécessaires pour utiliser la commande sudo.   
 
 
 
