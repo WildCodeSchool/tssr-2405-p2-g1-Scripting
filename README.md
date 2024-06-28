@@ -13,9 +13,8 @@ Les tâches sont des actions sur les utilisateurs (créer/supprimer/afficher), s
 
 ## L'équipe
 
-- Jiani 
 - Jérôme
+- Jiani 
 - Karim
-- Philippe
 - Nabil
-
+- Philippe
