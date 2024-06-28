@@ -7,7 +7,7 @@ Le projet consiste à créer un script qui s’exécute sur une machine et effec
 
 L’ensemble des machines sont sur le même réseau.
 
-Les tâches sont des actions sur les utilisateurs (créer/supprimer), sur le système (redémarer/éteindre) ou des requêtes d’information.
+Les tâches sont des actions sur les utilisateurs (créer/supprimer/afficher), sur le système (redémarer/éteindre) ou des requêtes d’information.
 
 ![menulinux](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/blob/main/Annexes/menulinux.png)
 
