@@ -13,8 +13,10 @@ Les tâches sont des actions sur les utilisateurs (créer/supprimer/afficher), s
 
 ## L'équipe
 
-- Jérôme
-- Jiani 
-- Karim
-- Nabil
-- Philippe
+| - | Semaine 1 | Semaine 2 | Semaine 3 | Semaine 4 |
+| --- | --- | --- | --- | --- |
+| Jérôme |
+| Jiani |
+| Karim |
+| Nabil |
+| Philippe |
