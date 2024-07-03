@@ -1,6 +1,6 @@
 # Variables
-$remoteIP = "192.168.1.100"  # Adresse IP du PC Windows 10
-$username = "Administrateur"  # Nom d'utilisateur sur le PC Windows 10
+$remoteIP = Read-Host "Entrer l'adresse IP du client"  # Adresse IP du PC Windows 10
+$username = Read-Host "Entrer le nom d'utilosateur"  # Nom d'utilisateur sur le PC Windows 10
 #$scriptPath = "C:\Users\Administrateur\Documents\nouveau4.ps1"  # Chemin du script à exécuter
 
 # Demander les informations d'identification
