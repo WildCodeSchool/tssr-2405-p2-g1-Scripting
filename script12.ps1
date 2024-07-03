@@ -1,6 +1,6 @@
 # Variables
 $remoteIP = Read-Host "Entrer l'adresse IP du client"  # Adresse IP du PC Windows 10
-$username = Read-Host "Entrer le nom d'utilosateur"  # Nom d'utilisateur sur le PC Windows 10
+$username = Read-Host "Entrer le nom d'utilisateur"  # Nom d'utilisateur sur le PC Windows 10
 #$scriptPath = "C:\Users\Administrateur\Documents\nouveau4.ps1"  # Chemin du script à exécuter
 
 # Demander les informations d'identification
@@ -112,39 +112,39 @@ function Validate-Selection {
 	    }
 	 Main
 	}
-	# Lister les imprimantes et afficher les résultats
-	$printersList = List-PrintersRemote -Session $session
+# Lister les imprimantes et afficher les résultats
+$printersList = List-PrintersRemote -Session $session
 	
-	# Afficher les résultats
-	$printersList | Format-Table -AutoSize
+# Afficher les résultats
+$printersList | Format-Table -AutoSize
 	
-	Write-Host "Liste des imprimantes récupérée avec succès."
-	# choix pour sortir
-	function Exit-Script {
-		Write-Host "sortie du script. A bientot"
-		exit
-	}
-	Main
+Write-Host "Liste des imprimantes récupérée avec succès."
+# choix pour sortir
+function Exit-Script {
+	Write-Host "sortie du script. A bientot"
+	exit
+}
+Main
 	
 	
-	#liste des choix possible
-	function Execute-Action {
-	    param (
-	        [int]$Selection,
-	        [string[]]$Choices
-	    )
+#liste des choix possible
+function Execute-Action {
+	param (
+	[int]$Selection,
+	[string[]]$Choices
+	)
 	    
-	    switch ($Selection) {
-	        1 { Add-User }
-	        2 { List-LocalUsers }
-	        3 { Remove-User }
-			4 {list-printersremote }
-			5 {Exit-script}
+	switch ($Selection) {
+	1 { Add-User }
+	2 { List-LocalUsers }
+	3 { Remove-User }
+		4 {list-printersremote }
+		5 {Exit-script}
 			       
-	        default { Write-Host "Option inconnue." }
-	    } 
+	default { Write-Host "Option inconnue." }
+	} 
 		
-	}
+}
 	
 	
 	function Main {
