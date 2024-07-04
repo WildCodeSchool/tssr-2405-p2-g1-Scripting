@@ -37,7 +37,7 @@ Les tâches sont des actions sur les utilisateurs (créer/supprimer/afficher), s
 | Semaine 1 | Analyse du sujet - Répartition des rôles - Mise en place des VMs |
 | Semaine 2 | Squelette des scripts - Rédaction de la documentation de mise en place des VMs |
 | Semaine 3 | Execution à distance - Finalisation des squelettes des scripts | 
-| Semaine 4 | Tests des scripts - Rédaction de la documenation des scripts - Présentation finale |
+| Semaine 4 | Tests des scripts - Rédaction de la documentation des scripts - Présentation finale |
 
 ---
 
