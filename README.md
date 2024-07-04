@@ -9,6 +9,8 @@ Les tâches sont des actions sur les utilisateurs (créer/supprimer/afficher), s
 
 ![menulinux](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/blob/main/Annexes/menulinux.png)
 
+---
+
 ## Objectifs
 
 ### Objectifs principaux
@@ -17,6 +19,8 @@ Les tâches sont des actions sur les utilisateurs (créer/supprimer/afficher), s
 
 ### Objectifs secondaires
 - Cibler une machine cliente avec un type d'OS différent depuis un serveur.
+
+---
 
 ## L'équipe
 
@@ -28,7 +32,7 @@ Les tâches sont des actions sur les utilisateurs (créer/supprimer/afficher), s
 | Nabil | Product Owner | | | Scrum Master |
 | Philippe | Scrum Master | | Product Owner | |
 
-## Configuration des Machines
+---
 
 ## Fonctionnalités des Scripts
 
@@ -43,26 +47,31 @@ Ce script est exécuté sur le serveur Debian et permet d'effectuer diverses act
 - **Actions** : Création/suppression de compte, arrêt/redémarrage des ordinateurs, etc.
 - **Informations** : Récupération de données telles que la date de dernière connexion, version de l'OS, etc.
 
-## Journalisation
+### Journalisation
 
 Les événements sont enregistrés dans des fichiers de log :
 
 - **Serveur Windows** : `C:\Windows\System32\LogFiles\log_evt.log`
 - **Serveur Linux** : `/var/log/log_evt.log`
 
+---
+
 ## Documentation
 
-### Documentation Générale
+### Documentation générale : README
 - Présentation du projet
 - Membres du groupe et rôles
-- Choix techniques et versions des OS
 - Difficultés et solutions
 - Améliorations possibles
 
-### Documentation Administrateur et Utilisateur
+### Documentation administrateur : INSTALL
 - Prérequis techniques
 - Instructions d'installation et de configuration
-- FAQ pour les problèmes courants
+- Choix techniques et versions des OS
+
+### Documentation utilisateurs : USERGUIDE
+- Utilisation courante des scripts
+- FAQ
 
 ## Conclusion
 
