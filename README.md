@@ -7,7 +7,9 @@ Ce projet consiste à développer des scripts permettant d'exécuter des tâches
 
 Les tâches sont des actions sur les utilisateurs (créer/supprimer/afficher), sur le système (redémarer/éteindre) ou des requêtes d’information.
 
-![menulinux](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/blob/main/Annexes/menulinux.png)
+<p align="center">
+<img align="center" src="https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/blob/main/Annexes/menulinux.png">
+</p>
 
 ---
 
