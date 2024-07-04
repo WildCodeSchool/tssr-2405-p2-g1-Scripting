@@ -13,7 +13,7 @@ Les tâches sont des actions sur les utilisateurs (créer/supprimer/afficher), s
 
 ### Objectifs principaux
 - Exécuter un script PowerShell sur un serveur Windows Server 2022 ciblant des ordinateurs Windows.
-- Exécuter un script shell sur un serveur Debian 12 ciblant des ordinateurs Ubuntu.
+- Exécuter un script bash sur un serveur Debian 12 ciblant des ordinateurs Ubuntu.
 
 ### Objectifs secondaires
 - Cibler une machine cliente avec un type d'OS différent depuis un serveur.
