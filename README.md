@@ -24,7 +24,7 @@ Les tâches sont des actions sur les utilisateurs (créer/supprimer/afficher), s
 
 ## L'équipe
 
-| - | Semaine 1 | Semaine 2 | Semaine 3 | Semaine 4 |
+|  | Semaine 1 | Semaine 2 | Semaine 3 | Semaine 4 |
 | --- | --- | --- | --- | --- |
 | Jérôme | | Product Owner | | Scrum Master | |
 | Jiani | | Scrum Master | | Product Owner |
