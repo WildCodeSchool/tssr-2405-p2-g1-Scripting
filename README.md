@@ -9,16 +9,6 @@ Les tâches sont des actions sur les utilisateurs (créer/supprimer/afficher), s
 
 ![menulinux](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/blob/main/Annexes/menulinux.png)
 
-## L'équipe
-
-| - | Semaine 1 | Semaine 2 | Semaine 3 | Semaine 4 |
-| --- | --- | --- | --- | --- |
-| Jérôme |
-| Jiani |
-| Karim |
-| Nabil |
-| Philippe |
-
 ## Objectifs
 
 ### Objectifs principaux
@@ -27,6 +17,16 @@ Les tâches sont des actions sur les utilisateurs (créer/supprimer/afficher), s
 
 ### Objectifs secondaires
 - Cibler une machine cliente avec un type d'OS différent depuis un serveur.
+
+## L'équipe
+
+| - | Semaine 1 | Semaine 2 | Semaine 3 | Semaine 4 |
+| --- | --- | --- | --- | --- |
+| Jérôme | | Product Owwner | | Scrum Master | |
+| Jiani | | Scrum Master | | | Product Owner |
+| Karim | | | Scrum Master | | Product Owner |
+| Nabil | Product Owner | | | Scrum Master |
+| Philippe | Scrum Master | | Product Owner | |
 
 ## Configuration des Machines
 
