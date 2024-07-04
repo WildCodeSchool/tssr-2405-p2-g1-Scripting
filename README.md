@@ -32,7 +32,7 @@ Les tâches sont des actions sur les utilisateurs (créer/supprimer/afficher), s
 | Nabil | Product Owner | | | Scrum Master |
 | Philippe | Scrum Master | | Product Owner | |
 
-| Planning | |
+| | Planning |
 | --- | --- |
 | Semaine 1 | Analyse du sujet - Répartition des rôles - Mise en place des VMs |
 | Semaine 2 | Squelette des scripts - Rédaction de la documentation de mise en place des VMs |
