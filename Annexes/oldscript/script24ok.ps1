@@ -1,31 +1,31 @@
-# Demander à l'utilisateur de saisir l'adresse IP de la machine distante
+# Demander Ã  l'utilisateur de saisir l'adresse IP de la machine distante
 $remoteIp = Read-Host "Veuillez entrer l'adresse IP de la machine distante"
 $username = "Administrateur"
 
 $password = Read-Host -AsSecureString "Veuillez entrer le mot de passe"
 $password | ConvertFrom-SecureString | Out-File "C:\Users\Administrateur\Documents\secure_password.txt"
-# Vérifier si WinRM est installé et en cours d'exécution
+# VÃ©rifier si WinRM est installÃ© et en cours d'exÃ©cution
 $winrmService = Get-Service -Name winrm -ErrorAction SilentlyContinue
 if (-not $winrmService) {
-    Write-Output "WinRM n'est pas installé sur cette machine."
+    Write-Output "WinRM n'est pas installÃ© sur cette machine."
     exit
 }
 
-# Démarrer le service WinRM s'il n'est pas déjà en cours d'exécution
+# DÃ©marrer le service WinRM s'il n'est pas dÃ©jÃ  en cours d'exÃ©cution
 if ($winrmService.Status -ne 'Running') {
-    Write-Output "Démarrage du service WinRM..."
+    Write-Output "DÃ©marrage du service WinRM..."
     Start-Service -Name winrm
 }
 
-# Configurer WinRM si nécessaire
+# Configurer WinRM si nÃ©cessaire
 $winrmListener =  winrm get winrm/config/Listener?Address=*+Transport=HTTP 2>&1  
 if ($winrmListener -is [System.Management.Automation.ErrorRecord]) {
     Write-Output "Configuration de WinRM..."
     winrm quickconfig -quiet
 }
 
-# Ajouter l'IP de la machine distante à la liste des hôtes de confiance
-Write-Output "Ajout de l'adresse IP $remoteIp à la liste des hôtes de confiance..."
+# Ajouter l'IP de la machine distante Ã  la liste des hÃ´tes de confiance
+Write-Output "Ajout de l'adresse IP $remoteIp Ã  la liste des hÃ´tes de confiance..."
 Set-Item WSMan:\localhost\Client\TrustedHosts -Value * -Force
 #-Value $remoteIp -Force
 #$username = Get-Content "C:\Users\Administrateur\Documents\username.txt"
@@ -33,11 +33,11 @@ $securePassword = Get-Content "C:\Users\Administrateur\Documents\secure_password
 # Demander les informations d'identification de l'utilisateur
 $cred = New-Object System.Management.Automation.PSCredential ($username, $securePassword)
 
-# Créer une session distante avec l'adresse IP spécifiée
+# CrÃ©er une session distante avec l'adresse IP spÃ©cifiÃ©e
 try {
-    Write-Output "Établissement de la session distante avec $remoteIp..."
+    Write-Output "Ã‰tablissement de la session distante avec $remoteIp..."
     $session = New-PSSession -ComputerName $remoteIp -Credential $cred -Authentication Default
-    Write-Output "Session établie avec succès à $remoteIp"
+    Write-Output "Session Ã©tablie avec succÃ¨s Ã  $remoteIp"
 } catch {
     Write-Output "Erreur lors de la tentative de connexion : $_"
     exit
@@ -87,7 +87,7 @@ function Validate-Selection {
 	    try {
 	        New-LocalUser -Name $username -Password $password -FullName $username -Description "utilisateur ajoute par script"
 	        Add-LocalGroupMember -Group "Utilisateurs" -Member $username
-	        Write-Host "Utilisateur '$username' ajoute avec succès."
+	        Write-Host "Utilisateur '$username' ajoute avec succÃ¨s."
 	    } catch {
 	        Write-Host "Erreur lors de l'ajout de l'utilisateur : $_"
 		}
@@ -164,30 +164,30 @@ function List-PrintersRemote {
 	
 	
 
-# Lister les imprimantes et afficher les résultats
+# Lister les imprimantes et afficher les rÃ©sultats
 $printersList = List-PrintersRemote  #-Session $session
 
-# Afficher les résultats
+# Afficher les rÃ©sultats
 $printersList | Format-Table -AutoSize
 
 
-     } catch {Write-Host "Liste des imprimantes récupérée avec succès."}
+     } catch {Write-Host "Liste des imprimantes rÃ©cupÃ©rÃ©e avec succÃ¨s."}
 
 	Main
 }
 
 
-# Fonction pour vérifier l'espace disque
+# Fonction pour vÃ©rifier l'espace disque
 function Check-DiskSpace {
     param (
         [string]$remoteIp
     )
 
     try {
-        # Cr�er une session distante
+        # Créer une session distante
         #$session = New-PSSession -ComputerName $remoteIp
         
-        # Ex�cuter les commandes sur l'ordinateur distant
+        # Exécuter les commandes sur l'ordinateur distant
         $diskSpace = Invoke-Command -Session $session -ScriptBlock {
             Get-PSDrive -PSProvider FileSystem | Select-Object Name, 
                 @{Name="FreeSpace(GB)";Expression={[math]::round($_.Free / 1GB, 2)}}, 
@@ -195,14 +195,14 @@ function Check-DiskSpace {
                 @{Name="TotalSize(GB)";Expression={[math]::round(($_.Used + $_.Free) / 1GB, 2)}}
         }
 
-        # Afficher les r�sultats
+        # Afficher les résultats
         $diskSpace | Format-Table -AutoSize
         
         # Fermer la session distante
         #Remove-PSSession -Session $session
     }
     catch {
-        Write-Host "Erreur lors de la v�rification de l'espace disque : $_"
+        Write-Host "Erreur lors de la vérification de l'espace disque : $_"
     }
     Main 
 }
