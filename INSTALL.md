@@ -1,4 +1,10 @@
 # Installation des machines Linux et Windows
+
+- [Mise en place du client Ubuntu](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/edit/main/INSTALL.md#installation-de-openssh-sur-ubuntu-2204)
+- [Mise en place du serveur Debian](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/edit/main/INSTALL.md#installation-de-openssh-sur-debian-12)
+- [Mise en place du client Windows](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/edit/main/INSTALL.md#mise-en-place-du-client-windows-10)
+- [Mise en place du serveur Windows](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/edit/main/INSTALL.md#mise-en-place-en-place-du-windows-server-2020)
+
 ---
 ## **Installation de Openssh sur Ubuntu 22.04**
 ---
