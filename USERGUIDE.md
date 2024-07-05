@@ -1,4 +1,4 @@
-# Documentation d'Utilisation du [Script LINUX](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/edit/main/LINUX_Script.sh) de Gestion des Utilisateurs et du Serveur via SSH
+# Documentation d'Utilisation des scripts [LINUX](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/edit/main/LINUX_Script.sh) et [WINDOWS](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/edit/main/WINDOWS_Script.ps1) de Gestion des Utilisateurs et du Serveur via SSH
 
 ## Introduction
 Ce script Bash permet de gérer des utilisateurs et d'effectuer diverses actions sur un serveur distant via SSH. Il inclut une fonctionnalité de journalisation qui enregistre les activités effectuées dans des fichiers log spécifiques selon le système d'exploitation (Windows ou Linux).
