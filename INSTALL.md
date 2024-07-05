@@ -411,6 +411,7 @@ IL est préférable d'effectuer tout ce qui est optionnel si vous avez suivi ce 
 > Modifier l’adresse IP, le masque de sous-réseau et la passerelle
 
 ![IPV4client](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/blob/main/Annexes/IPV4fixe_CLI.png)
+
 --- 
 ## Mise en place en place du Windows Server 2020
 ---
