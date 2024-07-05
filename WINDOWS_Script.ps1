@@ -1,31 +1,31 @@
-# Demander Ã  l'utilisateur de saisir l'adresse IP de la machine distante
+# Demander à l'utilisateur de saisir l'adresse IP de la machine distante
 $remoteIp = Read-Host "Veuillez entrer l'adresse IP de la machine distante"
 $username = "Administrateur"
 
 $password = Read-Host -AsSecureString "Veuillez entrer le mot de passe"
 $password | ConvertFrom-SecureString | Out-File "C:\Users\Administrateur\Documents\secure_password.txt"
-# VÃ©rifier si WinRM est installÃ© et en cours d'exÃ©cution
+# Vérifier si WinRM est installé et en cours d'exécution
 $winrmService = Get-Service -Name winrm -ErrorAction SilentlyContinue
 if (-not $winrmService) {
-    Write-Output "WinRM n'est pas installÃ© sur cette machine."
+    Write-Output "WinRM n'est pas installé sur cette machine."
     exit
 }
 
-# DÃ©marrer le service WinRM s'il n'est pas dÃ©jÃ  en cours d'exÃ©cution
+# Démarrer le service WinRM s'il n'est pas déjà en cours d'exécution
 if ($winrmService.Status -ne 'Running') {
-    Write-Output "DÃ©marrage du service WinRM..."
+    Write-Output "Démarrage du service WinRM..."
     Start-Service -Name winrm
 }
 
-# Configurer WinRM si nÃ©cessaire
+# Configurer WinRM si nécessaire
 $winrmListener =  winrm get winrm/config/Listener?Address=*+Transport=HTTP 2>&1  
 if ($winrmListener -is [System.Management.Automation.ErrorRecord]) {
     Write-Output "Configuration de WinRM..."
     winrm quickconfig -quiet
 }
 
-# Ajouter l'IP de la machine distante Ã  la liste des hÃ´tes de confiance
-Write-Output "Ajout de l'adresse IP $remoteIp Ã  la liste des hÃ´tes de confiance..."
+# Ajouter l'IP de la machine distante à la liste des hôtes de confiance
+Write-Output "Ajout de l'adresse IP $remoteIp à la liste des hôtes de confiance..."
 Set-Item WSMan:\localhost\Client\TrustedHosts -Value * -Force
 #-Value $remoteIp -Force
 #$username = Get-Content "C:\Users\Administrateur\Documents\username.txt"
@@ -33,11 +33,11 @@ $securePassword = Get-Content "C:\Users\Administrateur\Documents\secure_password
 # Demander les informations d'identification de l'utilisateur
 $cred = New-Object System.Management.Automation.PSCredential ($username, $securePassword)
 
-# CrÃ©er une session distante avec l'adresse IP spÃ©cifiÃ©e
+# Créer une session distante avec l'adresse IP spécifiée
 try {
-    Write-Output "Ã‰tablissement de la session distante avec $remoteIp..."
+    Write-Output "Établissement de la session distante avec $remoteIp..."
     $session = New-PSSession -ComputerName $remoteIp -Credential $cred -Authentication Default
-    Write-Output "Session Ã©tablie avec succÃ¨s Ã  $remoteIp"
+    Write-Output "Session établie avec succès à $remoteIp"
 } catch {
     Write-Output "Erreur lors de la tentative de connexion : $_"
     exit
@@ -87,7 +87,7 @@ function Validate-Selection {
 	    try {
 	        New-LocalUser -Name $username -Password $password -FullName $username -Description "utilisateur ajoute par script"
 	        Add-LocalGroupMember -Group "Utilisateurs" -Member $username
-	        Write-Host "Utilisateur '$username' ajoute avec succÃ¨s."
+	        Write-Host "Utilisateur '$username' ajoute avec succès."
 	    } catch {
 	        Write-Host "Erreur lors de l'ajout de l'utilisateur : $_"
 		}
@@ -140,7 +140,7 @@ function Validate-Selection {
 	
 
 
-# Fonction pour vÃ©rifier l'espace disque
+# Fonction pour vérifier l'espace disque
 function Check-DiskSpace {
     param (
         [string]$remoteIp
@@ -217,7 +217,7 @@ Function AddAdminGroup {
     } catch {
 			Write-Host "Erreur lors de l'ajout de l'utilisateur : $_"
 		}# else {
-        #Write-Host "Ajout annulé." -ForegroundColor Yellow 
+        #Write-Host "Ajout annul鮢 -ForegroundColor Yellow 
     
     
     #$message = "$nomUtilisateur a bien ete ajouter au groupe administrateurs"
@@ -250,36 +250,50 @@ function List-PrintersRemote {
 	
 	
 
-# Lister les imprimantes et afficher les rÃ©sultats
+# Lister les imprimantes et afficher les résultats
 #$printersList = List-PrintersRemote  -Session $session
 
-# Afficher les rÃ©sultats
+# Afficher les résultats
 	$printersList | Format-Table -AutoSize }
 
 
-     } catch {Write-Host "Liste des imprimantes rÃ©cupÃ©rÃ©e avec succÃ¨s."}
+     } catch {Write-Host "Liste des imprimantes récupérée avec succès."}
 
 	Main
 }
 
 #recuperation des logs
 Function Get-Log {
-		 param (
-        [string]$remoteIp
-				)
-				
-    $logFile = "C:\Users\Administrateur\Documents\log.txt"
-# Extraire les logs systÃ¨me et les enregistrer dans le fichier 
-Get-EventLog -LogName System | Out-File -FilePath $logFile -Encoding utf8
-# Afficher un message de confirmation
-Write-Host "Les logs systeme ont ete extraits dans le fichier : $logFile" 
+		 #param (
+        #[string]$remoteIp )
+		
+		
 
+# Créer une fonction pour écrire les logs
+#function WriteLog {
+   # param (
+        #[string]$message
+   # )
+	#$logFile = "C:\Users\Administrateur\Documents\log.txt"
+    #$message | Out-File -FilePath $logFile -Append -Encoding json
+
+
+# ScriptBlock à exécuter sur la machine distante
+	    param ([string]$remoteIP )
+		 #Get-EventLog $session
+		Invoke-Command -Session $session  -ScriptBlock  {
+    Get-EventLog -LogName System | Out-File "C:\Users\Administrateur\Documents\log.txt" -Encoding utf8 
+	#$LogFile = "C:\Users\Administrateur\Documents\log.txt"
+    Write-Host "Les logs systeme ont ete extraits dans le fichier : $logFile"
+
+}				
 Main 
 }
 #recuperation des IP et MAC Adresse 
-function  get-Addresse-IP-MAC {
+function  get-Addresse-IP-MAC { 
 		 param ( 
-		[string] $remoteIp)
+		[string] $remoteIp 
+		)
 		
 		Invoke-Command -Session $session { 
 		$ipInfo = Get-NetIPAddress  #-AddressFamily IPv4 | Where-Object {$_.InterfaceAlias -notlike "Loopback*"} 
@@ -321,15 +335,15 @@ function Execute-Action {
 	)
 	    
 	switch ($Selection) {
-	01 { Add-User }
-	02 { List-LocalUsers }
-	03 { Remove-User }
-    04 { Get-LocalGroupMember }
-    05 { AddAdminGroup }
-	06 { list-printersremote }   
-	07 { Check-DiskSpace } 
-	08 { Get-Log }
-	09 { get-Addresse-IP-MAC }	
+	1 { Add-User }
+	2 { List-LocalUsers }
+	3 { Remove-User }
+    4 { Get-LocalGroupMember }
+    5 { AddAdminGroup }
+	6 { list-printersremote }   
+	7 { Check-DiskSpace } 
+	8 { Get-Log }
+	9 { get-Addresse-IP-MAC }	
 	10 { Exit-script }
 			       
 	default { Write-Host "Option inconnue." }
