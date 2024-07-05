@@ -67,18 +67,18 @@ Les événements sont enregistrés dans des fichiers de log :
 
 ## Documentation
 
-### Documentation générale : [README](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/edit/main/README.md)
+### Documentation générale : [README](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/blob/main/README.md)
 - Présentation du projet
 - Membres du groupe et rôles
 - Difficultés et solutions
 - Améliorations possibles
 
-### Documentation administrateur : [INSTALL](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/edit/main/INSTALL.md)
+### Documentation administrateur : [INSTALL](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/blob/main/INSTALL.md)
 - Prérequis techniques
 - Instructions d'installation et de configuration
 - Choix techniques et versions des OS
 
-### Documentation utilisateurs : [USERGUIDE](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/edit/main/USERGUIDE.md)
+### Documentation utilisateurs : [USERGUIDE](https://github.com/WildCodeSchool/tssr-2405-p2-g1-Scripting/blob/main/USERGUIDE.md)
 - Utilisation courante des scripts
 - FAQ
 
