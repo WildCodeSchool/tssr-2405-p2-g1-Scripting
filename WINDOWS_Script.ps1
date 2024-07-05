@@ -309,7 +309,18 @@ function  get-Addresse-IP-MAC {
     $computerInfo | Format-Table -AutoSize
 		
 	Main	
-}		
+}	
+#info pc
+function system-info {
+	 param ( 
+		[string] $remoteIp)
+		
+	Invoke-Command -Session $session -ScriptBlock { get-computerinfo }
+		
+		
+	Main
+	
+	}
 	
 	
  
